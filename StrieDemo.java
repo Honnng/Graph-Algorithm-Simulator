@@ -1,14 +1,13 @@
-//TODO: Nothing: this class is complete, including JavaDocs.
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
 /**
- *  A demo program to help you test with Strie.
+ *  A demo program to help testing with Strie.
  *  Use with the command:
  *      java StrieDemo 
  *
- *  @author CS310 Profs
+ *  @author Hongjia Hao
  */	
 public class StrieDemo {
 
@@ -28,11 +27,6 @@ public class StrieDemo {
 					case 1:
 						System.out.print("Enter a word: ");
 						String word = in.nextLine().trim();
-						// NOTE: We use .trim() here to remove whitespaces from both ends 
-						// of the input.  This will make the visual checking easier.  
-						// Your Strie, however, should be able to deal with any input 
-						// starts and/or ends with whitespaces. Feel free to change this
-						// for your own testing if needed.
 												
 						myStrie.insert(word);
 						

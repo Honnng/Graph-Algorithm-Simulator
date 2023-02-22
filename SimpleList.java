@@ -1,4 +1,3 @@
-// TO DO: add your implementation and JavaDocs.
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -11,14 +10,6 @@ import java.util.NoSuchElementException;
  */
 class SimpleList<T> implements Iterable<T> {
 	
-	// A linked list class 
-	// You decide the internal attributes and node structure
-	// But they should all be private
-
-	// Class for the internal node: not visible to the outside 
-	// Do not change the provided fields: otherwise the provided iterator() will not work
-	
-	//DO NOT CHANGE THIS CLASS EXCEPT TO ADD JAVADOCS
 	/**
 	 * Node class.
 	 * @param <T> node.
@@ -45,13 +36,12 @@ class SimpleList<T> implements Iterable<T> {
 	/**
 	 * First node.
 	 */
-	private Node<T> head;  	// first node, not dummy
+	private Node<T> head;  	
 	/**
 	 * Last node.
 	 */
-	private Node<T> tail;  	// last node, not dummy
+	private Node<T> tail;  	
 
-	// ADD MORE PRIVATE MEMBERS HERE IF NEEDED!
 	/**
 	 * List size.
 	 */
@@ -76,7 +66,7 @@ class SimpleList<T> implements Iterable<T> {
 		//Return the number of nodes in list
 		//O(1)
 		
-		return this.size; //default return; change or remove as needed
+		return this.size; 
 	}
 	/**
 	 * Add a node at last in the list.
@@ -87,12 +77,6 @@ class SimpleList<T> implements Iterable<T> {
 		// Add a new node to the tail of the linked list to hold value
 		
 		// O(1) 
-		
-		// Note: The value to be added cannot be null.
-		// - Throw IllegalArgumentException if value is null. 
-		// - Use this _exact_ error message for the exception 
-		//  (quotes are not part of the message):
-		//    "Cannot add null value!"
 
 		if(value == null){
 			throw new IllegalArgumentException("Cannot add null value!");
@@ -138,7 +122,6 @@ class SimpleList<T> implements Iterable<T> {
 			this.size -= 1;
 			return temp.value;
 		}
-		//default return; change or remove as needed
 	}
 
 	/**
@@ -152,8 +135,6 @@ class SimpleList<T> implements Iterable<T> {
 		// Return false if value not present
 		
 		// O(N) where N is the number of nodes in list
-		
-		// NOTE: remember to use .equals() for comparison
 		if(this.size == 0){
 			return false;
 		}
@@ -198,7 +179,7 @@ class SimpleList<T> implements Iterable<T> {
 			}
 			temp = temp.next;
 		}
-		return false; //default return; change or remove as needed		
+		return false; 		
 	}
 	/**
 	 * Find the node with the specified value.
@@ -212,11 +193,6 @@ class SimpleList<T> implements Iterable<T> {
 		// Return null if value is not present.
 		
 		// O(N) where N is the number of nodes in list
-		
-		// NOTE: two values might be considered "equivalent" but not identical
-		//       example: check Pair class in HashMap.java:
-		//				Pair <k,v1> and <k,v2> equal to each other for different v1 and v2 
-		// NOTE: remember to use .equals() for comparison
 
 		if(this.size == 0){
 			return null;
@@ -239,18 +215,14 @@ class SimpleList<T> implements Iterable<T> {
 		if(this.tail.value.equals(value)){
 			return this.tail.value;
 		}
-		return null; //default return; change or remove as needed	
+		return null;	
 	}
 
-	// Provided: do not change but you will need to add JavaDoc
 	/**
 	 * Iterator class.
 	 * @return new Iterator.
 	 */
 	public Iterator<T> iterator(){
-		// return a basic iterator of T
-		// Note that this method uses your linked list!
-		// so if the iterator doesn't work, that's on you...
 
 		return new Iterator<>(){
 			private Node<T> current = head;
@@ -278,7 +250,6 @@ class SimpleList<T> implements Iterable<T> {
 		};
 	}
 	
-	// Provided: do not change but you will need to add JavaDoc
 	/**
 	 * To string method.
 	 * @return string.
@@ -302,17 +273,11 @@ class SimpleList<T> implements Iterable<T> {
 	
 	
 	//----------------------------------------------------
-	// example testing code... make sure you pass all ...
-	// and edit this as much as you want!
 	/**
 	 * Main.
 	 * @param args args.
 	 */
 	public static void main(String[] args){
-		//These are _sample_ tests. If you're seeing all the "yays" that's
-		//an excellend first step! But it does NOT guarantee your code is 100%
-		//working... You may edit this as much as you want, so you can add
-		//own tests here, modify these tests, or whatever you need!
 
 		//add, get
 		SimpleList<Integer> nums = new SimpleList<Integer>();

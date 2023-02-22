@@ -1,4 +1,3 @@
-// TO DO: add your implementation and JavaDocs.
 /**
  * Stire node class.
  */
@@ -18,10 +17,6 @@ public class StrieNode{
 	 */
 	private boolean endMarker;  
 	
-	// OPTIONAL boolean flag that you can use.
-	// It is completely optional to use this in your implementation.
-	// We will NOT test its usage but it is provided for more flexibility.
-	// Still, remember to write JavaDoc for it.
 	/**
 	 * Flag.
 	 */
@@ -29,18 +24,12 @@ public class StrieNode{
 	/**
 	 * Default length of the hashmap to start.
 	 */
-	private static final int INIT_MAP_LENGTH = 5; //default length of the hashmap to start
+	private static final int INIT_MAP_LENGTH = 5; 
 
-	// ADD MORE PRIVATE MEMBERS HERE IF NEEDED
 	/**
 	 * Constructor.
 	 */
 	public StrieNode(){
-		// Constructor
-		// Initialize anything that needs initialization
-		// HashMap must start with INIT_MAP_LENGTH entries
-		
-		// O(1)
 		this.children = new HashMap(INIT_MAP_LENGTH);
 		this.endMarker = false;
 	}
@@ -49,26 +38,23 @@ public class StrieNode{
 	 * @return the total number of children.
 	 */
 	public int getNumChildren(){
-		//report number of children nodes
 		//O(1)
 		
-		return this.children.size(); 	//default return; change or remove as needed	
+		return this.children.size(); 	
 	}
 	/**
 	 * Get all children.
 	 * @return the storage of all children.
 	 */
 	public HashMap<Character, StrieNode> getAllChildren(){
-		// return the storage of all children
 		// O(1)
 		
-		return this.children;//default return; change or remove as needed	
+		return this.children;	
 	}
 	/**
 	 * Set the end of a word.
 	 */
 	public void setEnd(){
-		// Sets the end marker to indicate this node is the end of a string/word
 		// O(1)
 		this.endMarker = true;
 	}
@@ -76,7 +62,6 @@ public class StrieNode{
 	 * Unsets the end marker.
 	 */
 	public void unsetEnd(){
-		// Unsets the end marker
 		// O(1)
 		this.endMarker = false;
 	}
@@ -85,10 +70,9 @@ public class StrieNode{
 	 * @return true if it is end.
 	 */
 	public boolean isEnd(){
-		// Checks whether the current node is marked as the end of a string/word
 		// O(1)
 		
-		return this.endMarker; //default return; change or remove as needed	
+		return this.endMarker; 	
 	}
 	/**
 	 * Check contains child or not.
@@ -96,13 +80,10 @@ public class StrieNode{
 	 * @return true if node has a child node corresponding to ch.
 	 */
 	public boolean containsChild(char ch){
-		// returns true if node has a child node corresponding to ch;
-		// return false otherwise 
 
 		// O(1)
-		// You can assume all HashMap operations are O(1)
 		
-		return this.children.contains(ch); //default return; change or remove as needed	
+		return this.children.contains(ch); 
 	}
 	/**
 	 * Get child.
@@ -110,13 +91,9 @@ public class StrieNode{
 	 * @return the child node corresponding to ch.
 	 */
 	public StrieNode getChild(char ch){
-		// returns the child node corresponding to ch
-		// returns null if no such node
-
 		// O(1)
-		// You can assume all HashMap operations are O(1)
 		
-		return this.children.getValue(ch); //default return; change or remove as needed	
+		return this.children.getValue(ch); 
 	}
 	/**
 	 * Set a child node corresponding to ch to node.
@@ -124,11 +101,8 @@ public class StrieNode{
 	 * @param node StireNode.
 	 */
 	public void putChild(char ch, StrieNode node){
-		// set a child node corresponding to ch to node
-		// if a node already exists, change the mapping of ch to the specified node
 
 		// O(1)
-		// You can assume all HashMap operations are O(1) except getKeys() and toString()
 		if(this.children.has(ch,node) == true){
 			this.children.update(ch, node);
 		}
@@ -142,25 +116,16 @@ public class StrieNode{
 	 * @return true if success.
 	 */
 	public boolean removeChild(char ch){
-		// remove child node corresponding to ch if a node is present
-		// return true if a child was removed;
-		// if no such child node, return false
 	
 		// O(1)
-		// You can assume all HashMap operations are O(1) except getKeys() and toString()
 		
-		return this.children.remove(ch); //default return; change or remove as needed	
+		return this.children.remove(ch); 
 	}
 
-	// Below are methods with the optional flag
-	// - implementation of those are optional 
-	// - no testing on them in grading
-	// Still, remember to write JavaDoc for them.
 	/**
 	 * Set flag.
 	 */
 	public void setFlag(){
-		// set the optional flag to be true
 		// O(1)
 		this.flag = true;
 	}
@@ -168,7 +133,6 @@ public class StrieNode{
 	 * Unset flag.
 	 */
 	public void unSetFlag(){
-		// set the optional flag to be false
 		// O(1)
 		this.flag = false;
 	}
@@ -177,10 +141,9 @@ public class StrieNode{
 	 * @return true if flag is true.
 	 */
 	public boolean checkFlag(){
-		// report the status of the optional flag
 		// O(1)
 		
-		return this.flag;//default return; change or remove as needed	
+		return this.flag;
 	}
 
 }

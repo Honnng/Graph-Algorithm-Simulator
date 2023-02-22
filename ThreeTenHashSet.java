@@ -1,4 +1,3 @@
-// TO DO: add your implementation and JavaDocs.
 
 import java.util.Iterator;
 /**
@@ -7,17 +6,11 @@ import java.util.Iterator;
  * @author Hongjia Hao.
  */
 class ThreeTenHashSet<T> {
-	// This is the class that you need to write to implement a set 
-	// using a hash table with _separate chaining_.
-
-	// Underlying storage table -- you MUST use this for credit!
-	// Do NOT change the name or type
 	/**
 	 * A simple list table.
 	 */
 	private SimpleList<T>[] table;
 
-	// ADD MORE PRIVATE MEMBERS HERE IF NEEDED!
 	/**
 	 * Capacity.
 	 */
@@ -32,10 +25,6 @@ class ThreeTenHashSet<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public ThreeTenHashSet(int initLength){
-		// Create a hash table where the storage is with initLength 
-		// Initially the table is empty 
-		// You can assume initLength is >= 2
-		
 		// O(1)
 
 		this.initLength = initLength;
@@ -46,20 +35,18 @@ class ThreeTenHashSet<T> {
 	 * @return capacity.
 	 */
 	public int capacity() {
-		// return the storage length
 		// O(1)
 		
-		return this.initLength; //default return; change or remove as needed
+		return this.initLength; 
 	}
 	/**
 	 * The length of the size.
 	 * @return the number of items in the table.
 	 */
 	public int size() {
-		// return the number of items in the table
 		// O(1)
 		
-		return this.size; //default return; change or remove as needed
+		return this.size; 
 	}
 	/**
 	 * Add an item to the set.
@@ -67,16 +54,6 @@ class ThreeTenHashSet<T> {
 	 * @return true if you successfully add value, false if the value can not be added.
 	 */
 	public boolean add(T value) {
-		// Add an item to the set 
-		// - return true if you successfully add value; 
-		// - return false if the value can not be added
-		//    (i.e. the value already exists or is null)
-
-		// NOTES:
-		// - Always add value to the tail of the chain.
-		// - If load of table is at or above 2.0, rehash() to double the length.
-				
-		// Time complexity not considering rehash(): 
 		// O(N) worst case, where N is the number of values in table
 		// O(N/M) average case where N is the number of values in table and M is the table length
 		
@@ -103,7 +80,6 @@ class ThreeTenHashSet<T> {
 			this.size += 1;
 			return true;
 		}
-		//default return; change or remove as needed
 	}
 	/**
 	 * Removes a value from the set.
@@ -111,10 +87,6 @@ class ThreeTenHashSet<T> {
 	 * @return true if you remove the item, false if the item is not present.
 	 */
 	public boolean remove(T value) {
-		// Removes a value from the set
-		// - return true if you remove the item
-		// - return false if the item is not present
-		
 		// O(N) worst case, where N is the number of values in table
 		// O(N/M) average case where N is the number of values in table and M is the table length
 
@@ -129,7 +101,6 @@ class ThreeTenHashSet<T> {
 			}
 			return result;
 		}
-		//default return; change or remove as needed
 	}
 	/**
 	 * Check the list contains value or not.
@@ -137,9 +108,6 @@ class ThreeTenHashSet<T> {
 	 * @return true if value is in the set, false otherwise.
 	 */
 	public boolean contains(T value) {
-		// Return true if value is in the set
-		// Return false otherwise
-		
 		// O(N) worst case, where N is the number of values in table
 		// O(N/M) average case where N is the number of values in table and M is the table length
 
@@ -153,7 +121,6 @@ class ThreeTenHashSet<T> {
 		else{
 			return false;
 		}
-		//default return; change or remove as needed
 	}
 	/**
 	 * Get the value from the list.
@@ -161,29 +128,10 @@ class ThreeTenHashSet<T> {
 	 * @return the term from the hash table if it was found.
 	 */
 	public T get(T value) {
-		// Return null if value is not present in set.
-		// Return the item _FROM THE HASH TABLE_ if it was found
-		//  - do not return the incoming parameter, while "equivalent" they
-		// may not be the same)
 		
 		// O(N) worst case, where N is the number of values in table
 		// O(N/M) average case where N is the number of values in table and M is the table length
 		
-		
-		// NOTE: HashMap uses a ThreeTenHashSet of Pair<Key,Value>. In that class,
-		// this method is used in the following way:
-		//
-		// - HashMap passes in a Pair<Key,Value> to search for
-		// - The key is "real", the value may be a "dummy" or null
-		// - The Pair<Key,--> passed in and the Pair<Key,Value> in the hash table
-		//   will match with .equals() -- see equals() in the Pair class
-		// - If this method finds the Pair<Key,-->, the returned value must be the 
-		//   **actual** hash table entry, which includes both matching key and a valid
-		//   non-null value.  
-		//
-		// Because of this, get() in this class need to be careful too, and it *must*
-		// return the value from the hash table and not the parameter.
-
 		int index = Math.abs(value.hashCode()) % this.initLength;
 		return this.table[index].get(value);
 		//default return; change or remove as needed
@@ -195,15 +143,8 @@ class ThreeTenHashSet<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public boolean rehash(int newCapacity) {
-		// Rehash to table size newCapacity
-		// - If the new capacity is no greater than the current capacity,
-		//   do not rehash and return false;
-		// - otherwise, return true after resizing
-		
-		// You can assume the newCapacity is always < Integer.MAX_VALUE - 50.
 		
 		// O(N+M) where N is the number of values in table and M is the table size
-		// Hint: Take advantage of the iterator of SimpleList to meet big-O requirements.
 		
 		if(newCapacity <= this.initLength){
 			return false;
@@ -222,7 +163,6 @@ class ThreeTenHashSet<T> {
 				
 	}
 	
-	// Provided: do not change but you will need to add JavaDoc
 	/**
 	 * To string method.
 	 * @return string.
@@ -241,7 +181,6 @@ class ThreeTenHashSet<T> {
 		return s.toString().trim();
 	}
 	
-	// Provided: do not change but you will need to add JavaDoc
 	/**
 	 * String debug.
 	 * @return string.
@@ -257,7 +196,6 @@ class ThreeTenHashSet<T> {
 		return s.toString().trim();
 	}
 
-	// Provided: do not change but you will need to add JavaDoc
 	/**
 	 * All values.
 	 * @return simple list contain all value.
@@ -274,19 +212,12 @@ class ThreeTenHashSet<T> {
 		return all;
 	}
 
-	//----------------------------------------------------
-	// example testing code... make sure you pass all ...
-	// and edit this as much as you want!
-	//----------------------------------------------------
 	/**
 	 * Main.
 	 * @param args args.
 	 */
 	public static void main(String[] args) {
 
-		// Again, these are limited sample tests.  Showing all "yays" 
-		// does NOT guarantee your code is 100%. 
-		// You must do more testing.
 	
 		ThreeTenHashSet<String> names = new ThreeTenHashSet<>(5);
 		

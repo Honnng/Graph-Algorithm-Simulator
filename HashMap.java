@@ -1,12 +1,9 @@
-//TODO: This class is complete, including JavaDocs.
-//  But you may want to run the given main() for more testing of SimpleList / ThreeTenHashSet.
 
-/**
  * A dictionary that maps key->value. 
  *  
  * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
- * @author Y. Zhong
+ * @author Hongjia Hao
  */
 
 class HashMap<K,V> {

@@ -1,25 +1,17 @@
-// TO DO: add your implementation and JavaDocs.
+
 /**
  * Stire class.
  */
 public class Strie{
-	//----------------------------------------------------
-	// NO MORE INSTANCE VARIABLES ALLOWED!
-	//----------------------------------------------------
-	
-	// Do NOT change the name or type of these variables
 	/**
 	 * The root of stire.
 	 */
-	private StrieNode root;  // the root of a strie
+	private StrieNode root;  
 	/**
 	 * Number of words represented by the strie.
 	 */
-	private int numWords = 0; // number of words represented by the strie
+	private int numWords = 0; 
 	
-	//----------------------------------------------------
-	// NO MORE INSTANCE VARIABLES ALLOWED!
-	//----------------------------------------------------
 	/**
 	 * Constructor.
 	 */
@@ -35,22 +27,16 @@ public class Strie{
 	 * @return number of words in the strie.
 	 */
 	public int numWords(){
-		// return number of words in the strie
-		
-		// O(1)
 	
-		return this.numWords; //default return; change or remove as needed	
+		return this.numWords; 
 	}
 	/**
 	 * The root of the strie.
 	 * @return root of the strie.
 	 */
 	public StrieNode getRoot(){
-		// return root of the strie
 		
-		// O(1)
-		
-		return this.root; //default return; change or remove as needed	
+		return this.root; 
 	
 	}
 	/**
@@ -58,7 +44,6 @@ public class Strie{
 	 * @param word word added.
 	 */
 	public void insert(String word){
-		// Insert word into your Strie. 
 
 		// O(n) where n is the number of characters in word
 		int length = word.length();
@@ -91,7 +76,6 @@ public class Strie{
 	 * @return true if Strie contains the given word.
 	 */
 	public boolean contains(String word){
-		// Returns true if Strie contains the given word.
 		
 		// O(n) where n is the number of characters in word
 		int length = word.length();
@@ -108,7 +92,7 @@ public class Strie{
 			}
 			temp = temp.getChild(word.charAt(i));
 		}
-		return true;//default return; change or remove as needed	
+		return true;	
 	}
 	/**
 	 * Removes the given word from Strie.
@@ -116,17 +100,6 @@ public class Strie{
 	 * @return true if remove success, false if not.
 	 */
 	public boolean remove(String word){
-		// Removes the given word from Strie.
-		
-		// If word is not present in strie, return false;
-		// Otherwise, remove word and return true.
-		
-		// Hint: Consider using recursion in your implementation.
-		// Hint: You can define recursive helper functions.
-		
-		// Note: While there are **no Big-O restrictions** on this
-		// method, it can be done in O(n) where n is the number
-		// of characters in word
 		if(this.contains(word) == false){
 			return false;
 		}
@@ -143,7 +116,7 @@ public class Strie{
 			temp = temp.getChild(word.charAt(i));
 			temp.removeChild(word.charAt(i + 1));
 		}
-		return remove(word.substring(0, length-1));//default return; change or remove as needed	
+		return remove(word.substring(0, length-1));
 	}
 
 	/**
@@ -151,22 +124,6 @@ public class Strie{
 	 * @return string.
 	 */
 	public String levelOrderTraversal(){
-		// Perform a Breadth First Traversal of your Strie tree
-		// and return a string of all characters encountered in the traversal.
-		// - If a Strie has no words, return an empty string.
-		// - A single space should be padded between characters.
-		// - For multiple children of a single node, use the order of characters in 
-		// getKeys() of the hash map to determine the traverse order.
-		//
-		// Check main() for examples.
-		
-		// Hint: you can use SimpleList to implement a queue easily.
-		
-		// Note: While there are **no Big-O restrictions** on this
-		// method, level order traversals are traditionally O(n)
-		// where n is the number of nodes in the tree. This may not
-		// be the case here due to the hash table implementation
-		// of children.
 		if(this.root.getNumChildren() == 0){
 			return "";
 		}
@@ -195,24 +152,7 @@ public class Strie{
 	 * @return simple list.
 	 */
 	public SimpleList<String> getStrieWords(){
-		// Return all words currently stored in Strie.
-		// If Strie has no words, return null.
-		//
-		// When there are multiple characters to continue from one node,
-		// use the order of characters in getKeys() of the hash map to 
-		// determine the traverse order.
-		//
-		// Also, prefix-words come before words that they are prefixes of. 
-		// For example, 'bar' comes before 'barn'. 
-		//
-		// Check main() for examples.
 		
-		// Hint: Consider using recursion in your implementation.
-		// Hint: You can define recursive helper functions.
-		
-		// Note: There are **no Big-O restrictions** on this
-		// method, but it **can** be done in the same runtime as
-		// a walk of the tree.
 		if(this.numWords == 0){
 			return null;
 		}
@@ -237,14 +177,9 @@ public class Strie{
 			}
 		}
 
-		return null;//default return; change or remove as needed	
+		return null;
 	}
 
-
-	//----------------------------------------------------
-	// example testing code... make sure you pass all ...
-	// and edit this as much as you want!
-	//----------------------------------------------------
 	/**
 	 *  The main method for teting.
 	 *  
